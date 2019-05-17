@@ -27,6 +27,9 @@ struct Movie: Codable{
         case releaseDate = "release_date"
     }
 }
+//making it an extension so it's more readable. We need this to be able to use .contains for the way im handling locally persistet favorites.
+extension Movie: Equatable{
+}
 
 //so also, all of these things are one level down so we need a top level dictionary struct.
 struct MovieTLD: Codable{

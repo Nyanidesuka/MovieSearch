@@ -17,6 +17,7 @@
 		17BA1CCC228F09FE003B6A63 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA1CCB228F09FE003B6A63 /* Movie.swift */; };
 		17BA1CCF228F0C9F003B6A63 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA1CCE228F0C9F003B6A63 /* MovieController.swift */; };
 		17BA1CD2228F1AAB003B6A63 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA1CD1228F1AAB003B6A63 /* MovieDetailViewController.swift */; };
+		17BA1CD4228F27AE003B6A63 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BA1CD3228F27AE003B6A63 /* FavoritesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		17BA1CCB228F09FE003B6A63 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		17BA1CCE228F0C9F003B6A63 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
 		17BA1CD1228F1AAB003B6A63 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		17BA1CD3228F27AE003B6A63 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				17BA1CC5228F0690003B6A63 /* MovieListTableViewController.swift */,
+				17BA1CD3228F27AE003B6A63 /* FavoritesTableViewController.swift */,
 				17BA1CD1228F1AAB003B6A63 /* MovieDetailViewController.swift */,
 			);
 			path = "View Controller";
@@ -185,6 +188,7 @@
 				17BA1CCF228F0C9F003B6A63 /* MovieController.swift in Sources */,
 				17BA1CC6228F0690003B6A63 /* MovieListTableViewController.swift in Sources */,
 				17BA1CB9228F045E003B6A63 /* MovieSearch.xcdatamodeld in Sources */,
+				17BA1CD4228F27AE003B6A63 /* FavoritesTableViewController.swift in Sources */,
 				17BA1CC9228F0927003B6A63 /* MovieTableViewCell.swift in Sources */,
 				17BA1CD2228F1AAB003B6A63 /* MovieDetailViewController.swift in Sources */,
 				17BA1CB1228F045E003B6A63 /* AppDelegate.swift in Sources */,

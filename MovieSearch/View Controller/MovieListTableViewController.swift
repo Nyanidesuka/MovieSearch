@@ -26,18 +26,11 @@ class MovieListTableViewController: UITableViewController {
         let imageView = UIImageView(image: UIImage(named: "notflix"))
         imageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imageView
-        //test it out
-        MovieController.shared.fetchMovies(searchTerm: "avengers") { (movies) in
-            MovieController.shared.fetchPosters(for: movies[0], completion: { (image) in
-                print(image?.pngData())
-            })
-        }
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return movies.count
     }
     
@@ -54,17 +47,21 @@ class MovieListTableViewController: UITableViewController {
         return cell
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //segue 🛴
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //make sure its the right segue
+        if segue.identifier == "toMovieDetail"{
+            //where we goin
+            guard let destinVC = segue.destination as? MovieDetailViewController else {return}
+            //who sent us
+            guard let index = tableView.indexPathForSelectedRow else {return}
+            //what r we sending
+            let sendMovie = movies[index.row]
+            //send it!
+            destinVC.movie = sendMovie
+        }
     }
-    */
-
 }
 //we need this to be able to use the search bar's delegate functions and those are nice to have when u wanna search
 extension MovieListTableViewController: UISearchBarDelegate{

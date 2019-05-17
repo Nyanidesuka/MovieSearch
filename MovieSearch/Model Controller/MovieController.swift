@@ -13,9 +13,15 @@ class MovieController{
     
     //singleton? It' either this or instantiate it on the viewcontroller and i feel like this is the way
     static var shared = MovieController()
-    private init(){}
+    private init(){
+        loadData()
+    }
     //and this is here so i have a shorthand for my api key. Don't worry, it's private. Extremely secure.
     private let apiKey = "d7b164c4ba538d2cb40823a7a1472e3b"
+    
+    //black diamond, adding an array to store favorite movies
+    var favorites: [Movie] = []
+    
     //MARK: - CRUD
     //complete with an array of movies, let that completion run asynchronously because network calls take time.
     func fetchMovies(searchTerm: String, completion: @escaping ([Movie]) -> Void){
@@ -81,4 +87,40 @@ class MovieController{
         }.resume()
     }
     
+    //make a URL for simple persistence
+    func getURL() -> URL {
+        //get the availabe paths
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        //pick the first
+        let documentsDirectory = paths[0]
+        let filename = "savedFaves.json"
+        //return a full url
+        return documentsDirectory.appendingPathComponent(filename)
+    }
+    //save
+    func saveToPersistentStore(){
+        //make an encoder
+        let encoder = JSONEncoder()
+        //do it to it
+        do{
+            let encodedFaves = try encoder.encode(MovieController.shared.favorites)
+            try encodedFaves.write(to: getURL())
+            print(encodedFaves)
+        } catch let error {
+            print("There was an error saving favorites: \(error)")
+        }
+    }
+    
+    //load
+    func loadData(){
+        //make a decoder
+        let decoder = JSONDecoder()
+        //just do it
+        do{
+            let faveData = try Data(contentsOf: getURL())
+            self.favorites = try decoder.decode([Movie].self, from: faveData)
+        } catch let error {
+            print("There was an error loading the data: \(error)")
+        }
+    }
 }
